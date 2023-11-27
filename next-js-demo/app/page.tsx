@@ -29,11 +29,12 @@ export default async function Home() {
   const graphQlDataString = JSON.stringify(graphQlData, null, 2);
 
   return (
-    <main className="flex min-h-screen flex-col justify-center p-24">
+    <main className="flex min-h-screen flex-col p-24">
+      <div className="text-5xl font-bold mb-8">Dynamic page (rendered server side on each request)</div>
       <div className="text-4xl font-bold mb-4">Current Time:</div>
       <div className="text-2xl mb-8">{currentTime}</div>
       <div className="text-4xl font-bold mb-4">Fake GraphQL Data:</div>
-      <pre className="text-2xl whitespace-pre-wrap">{JSON.stringify(graphQlData, null, 2)}</pre>
+      <pre className="text-2xl whitespace-pre-wrap">{graphQlDataString}</pre>
     </main>
   );
 }

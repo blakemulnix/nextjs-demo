@@ -21,8 +21,12 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: npm install, build, and test
+      - name: yarn install and build
         run: |
+          echo "working dir:"
+          pwd
+          echo "ls -a"
+          ls -a
           yarn
           yarn build
 

@@ -21,7 +21,7 @@ const client = new ApolloClient({
 const GET_REPOSITORIES = gql`
   query {
     viewer {
-      repositories(first: 15) {
+      repositories(first: 15, orderBy: { field: UPDATED_AT, direction: DESC }) {
         nodes {
           name
           description
@@ -69,7 +69,7 @@ export default async function Home() {
       <div className="text-2xl font-bold mb-4">This is rendered on the server for each request</div>
       <div className="text-xl font-bold mb-4">Time when rendered</div>
       <div className="text-xl mb-8">{currentTime}</div>
-      <div className="text-2xl font-bold mb-4">GitHub Repositories:</div>
+      <div className="text-2xl font-bold mb-4">Blake's Most Recent GitHub Repositories:</div>
       <table className="min-w-full">
         <thead>
           <tr>

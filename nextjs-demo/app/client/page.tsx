@@ -1,7 +1,9 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 
 export default function Home() {
+  const { data: session, status } = useSession();
   const [clickCount, setClickCount] = useState(0);
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
 
@@ -18,12 +20,13 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="text-5xl font-bold mb-8">Client (rendered client side)</div>
-      <div className="text-4xl font-bold mb-4">Current Time:</div>
-      <div className="text-2xl mb-8">{currentTime}</div>
-      <div className="text-4xl font-bold mb-4">Click Count:</div>
-      <div className="text-2xl mb-8">{clickCount}</div>
+    <main className="flex min-h-screen flex-col items-center p-24">
+      <div className="text-3xl font-bold mb-8">Client Rendered Page</div>
+      <div className="text-2xl font-bold mb-8">This is being rendered in your browser</div>
+      <div className="text-xl font-bold mb-4">Current Time:</div>
+      <div className="text-xl mb-8" suppressHydrationWarning>{currentTime}</div>
+      <div className="text-xl font-bold mb-4">Click Count:</div>
+      <div className="text-xl mb-8">{clickCount}</div>
       <button
         className="text-2xl border border-white rounded-full px-6 py-3 bg-black text-white hover:bg-blue-700"
         onClick={handleClick}

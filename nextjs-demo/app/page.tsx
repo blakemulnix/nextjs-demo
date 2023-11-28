@@ -1,40 +1,19 @@
-import cryptoRandomString from "crypto-random-string";
-
-export const dynamic = 'force-dynamic';
-
-const getGraphQlData = async () => {
-  // Simulating getting some data that takes 2 seconds to retrieve
-  return new Promise(resolve => {
-    setTimeout(() => {
-      const fakeData = {
-        myObjects: [
-          {
-            name: 'object1',
-            someValue: cryptoRandomString({ length: 8, type: 'alphanumeric' })
-          },
-          {
-            name: 'object2',
-            someValue: cryptoRandomString({ length: 8, type: 'alphanumeric' })
-          }
-        ]
-      };
-      resolve(fakeData);
-    }, 2000); 
-  });
-};
+import ButtonLink from "./components/ButtonLink";
 
 export default async function Home() {
-  const currentTime = new Date().toLocaleTimeString()
-  const graphQlData = await getGraphQlData();
-  const graphQlDataString = JSON.stringify(graphQlData, null, 2);
-
   return (
-    <main className="flex min-h-screen flex-col p-24">
-      <div className="text-5xl font-bold mb-8">Dynamic page (rendered server side on each request)</div>
-      <div className="text-4xl font-bold mb-4">Current Time:</div>
-      <div className="text-2xl mb-8">{currentTime}</div>
-      <div className="text-4xl font-bold mb-4">Fake GraphQL Data:</div>
-      <pre className="text-2xl whitespace-pre-wrap">{graphQlDataString}</pre>
+    <main className="flex min-h-screen flex-col p-24 items-center">
+      <div className="text-3xl font-bold mb-8">Next.js Demo Site</div>
+      <div className="text-xl font-bold mb-8 text-center">
+        Follow the links below to checkout pages showing off various 
+        rendering methods as well as authentication/authorization.
+      </div>
+      <div className="flex space-x-4">
+        <ButtonLink href="/client">Client Page</ButtonLink>
+        <ButtonLink href="/protected">Protected Page</ButtonLink>
+        <ButtonLink href="/server">Server Page</ButtonLink>
+        <ButtonLink href="/static">Static Page</ButtonLink>
+      </div>
     </main>
   );
 }

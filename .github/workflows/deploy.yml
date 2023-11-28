@@ -27,6 +27,18 @@ jobs:
             npm run build
             mv ./build/static ./build/standalone/build
             mv ./public ./build/standalone
+            
+    #   - name: create env file
+    #     env:
+    #         NEXT_PUBLIC_API_BASE_URL: ${{ vars.DEV_NEXT_PUBLIC_API_BASE_URL }}
+    #         NEXT_PUBLIC_WEB_BASE_URL: ${{ vars.DEV_NEXT_PUBLIC_WEB_BASE_URL }}
+    #         NEXT_PUBLIC_FIREBASE_CONFIG: ${{ vars.DEV_NEXT_PUBLIC_FIREBASE_CONFIG }}
+    #     run: |
+    #         touch .env
+    #         echo NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL >> .env
+    #         echo NEXT_PUBLIC_WEB_BASE_URL=$NEXT_PUBLIC_WEB_BASE_URL >> .env
+    #         echo NEXT_PUBLIC_FIREBASE_CONFIG=$NEXT_PUBLIC_FIREBASE_CONFIG >> .env
+    #         echo NODE_ENV=development >> .env
 
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp

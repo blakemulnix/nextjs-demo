@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import ButtonLink from './components/ButtonLink'
+import NextAuthProvider from './providers/NextAuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <NextAuthProvider>
+        <body className={inter.className}>
+          <nav className="text-white p-4">
+            <ul className="flex space-x-4 justify-center items-center">
+              <li className='text-2xl mr-5 font-bold'>
+                Next.js Demo
+              </li>
+              <li>
+                <ButtonLink href="/client">Client Page</ButtonLink>
+              </li>
+              <li>
+                <ButtonLink href="/server">Server Page</ButtonLink>
+              </li>
+              <li>
+                <ButtonLink href="/static">Static Page</ButtonLink>
+              </li>
+              <li>
+                <ButtonLink href="/protected">Protected Page</ButtonLink>
+              </li>
+            </ul>
+          </nav>
+          {children}
+        </body>
+      </NextAuthProvider>
     </html>
   )
 }

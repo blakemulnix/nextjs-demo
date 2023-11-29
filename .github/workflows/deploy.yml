@@ -18,16 +18,6 @@ jobs:
         with:
           node-version: "18.x"
 
-      - name: npm install, build, and test
-        run: |
-            cd nextjs-demo
-            pwd
-            ls
-            npm install
-            npm run build
-            mv ./build/static ./build/standalone/build
-            mv ./public ./build/standalone
-            
       - name: create env file
         run: |
             touch .env
@@ -38,6 +28,16 @@ jobs:
             echo NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} >> .env
             echo NODE_ENV=production >> .env
 
+      - name: npm install, build, and test
+        run: |
+            cd nextjs-demo
+            pwd
+            ls
+            npm install
+            npm run build
+            mv ./build/static ./build/standalone/build
+            mv ./public ./build/standalone
+            
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3

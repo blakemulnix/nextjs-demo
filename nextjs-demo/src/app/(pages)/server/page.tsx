@@ -10,10 +10,11 @@ export default function Page() {
       <div className="text-3xl font-bold mb-8">Server-side Rendered Page</div>
       <div className="text-xl mb-8">
         This page is rendered on the server for each request. This page was
-        rendered at {currentTime}
+        rendered at {currentTime} 
       </div>
+      {/* component is server component */}
       <div className="text-2xl font-bold mb-4">
-        Blake's Most Recent GitHub Repositories:
+        Blake&apos;s Most Recent GitHub Repositories:
       </div>
       <Suspense fallback={<LoadingText />}>
         <RepositoryTable />

@@ -2,8 +2,6 @@ import React from "react";
 
 export default function LoadingText() {
   return (
-    <div className="flex items-center justify-center p-24 text-center text-white text-2xl">
-      Loading...
-    </div>
+    <div className="flex w-full p-24 justify-center text-2xl">Loading...</div>
   );
 }

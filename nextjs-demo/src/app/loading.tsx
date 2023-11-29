@@ -1,4 +1,4 @@
-import LoadingText from "@/src/components/LoadingText";
+import LoadingText from '../components/LoadingText'
 
 export default function Loading() {
     return (

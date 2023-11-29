@@ -1,9 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
+import getCurrentTime from "@/src/util/TimeUtils";
 
 export default function Home() {
-  const { data: session, status } = useSession();
   const [clickCount, setClickCount] = useState(0);
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
@@ -11,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
+      setCurrentTime(getCurrentTime());
     }, 1000);
 
     return () => clearInterval(intervalId);

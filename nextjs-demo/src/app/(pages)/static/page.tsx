@@ -1,8 +1,10 @@
+import getCurrentTime from "@/src/util/TimeUtils";
+
 export const dynamic = "force-static";
 export const revalidate = false;
 
 export default async function Home() {
-  const currentTime = new Date().toLocaleTimeString();
+  const currentTime = getCurrentTime();
 
   return (
     <main className="flex min-h-screen flex-col p-12 items-center">
@@ -11,7 +13,7 @@ export default async function Home() {
       </div>
       <div className="text-xl mb-8">
         This page is rendered at build time. This page was rendered at{" "}
-        {currentTime};
+        {currentTime}.
       </div>
     </main>
   );

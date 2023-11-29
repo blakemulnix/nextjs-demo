@@ -1,8 +1,8 @@
-import ButtonLink from "./components/ButtonLink";
+import ButtonLink from "../components/ButtonLink";
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col p-24 items-center">
+    <main className="flex min-h-screen flex-col p-12 items-center text-center">
       <div className="text-3xl font-bold mb-8">Next.js Demo Site</div>
       <div className="text-xl font-bold mb-8 text-center">
         Follow the links below to checkout pages showing off various 

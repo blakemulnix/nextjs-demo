@@ -1,13 +1,11 @@
 import { NextAuthOptions } from 'next-auth';
 import AzureADProvider from "next-auth/providers/azure-ad";
 
-
 if (!process.env.AZURE_AD_CLIENT_ID || !process.env.AZURE_AD_CLIENT_SECRET) {
     throw "Couldn't get Azure client ID / secret from env"
 }
 
 export const authOptions: NextAuthOptions = {
-  // Secret for Next-auth, without this JWT encryption/decryption won't work
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
       AzureADProvider({

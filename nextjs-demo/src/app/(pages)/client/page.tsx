@@ -28,7 +28,7 @@ export default function Home() {
       <div className="text-xl font-bold mb-4">Click Count:</div>
       <div className="text-xl mb-8">{clickCount}</div>
       <button
-        className="text-2xl border border-white rounded-full px-6 py-3 bg-black text-white hover:bg-blue-700"
+        className="bg-black hover:bg-gray-800 text-xl font-bold py-2 px-4 rounded border border-white transition-all duration-300"
         onClick={handleClick}
       >
         Click me

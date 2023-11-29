@@ -20,12 +20,12 @@ jobs:
 
       - name: create env file
         run: |
-            touch .env
-            echo GH_ACCESS_TOKEN=${{ secrets.GH_ACCESS_TOKEN }} >> .env
-            echo AZURE_AD_CLIENT_ID=${{ secrets.AZURE_AD_CLIENT_ID }} >> .env
-            echo AZURE_AD_CLIENT_SECRET=${{ secrets.AZURE_AD_CLIENT_SECRET }} >> .env
-            echo AZURE_AD_TENANT_ID=${{ secrets.AZURE_AD_TENANT_ID }} >> .env
-            echo NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} >> .env
+            touch  ./nextjs-demo/.env
+            echo GH_ACCESS_TOKEN=${{ secrets.GH_ACCESS_TOKEN }} >>  ./nextjs-demo/.env
+            echo AZURE_AD_CLIENT_ID=${{ secrets.AZURE_AD_CLIENT_ID }} >>  ./nextjs-demo/.env
+            echo AZURE_AD_CLIENT_SECRET=${{ secrets.AZURE_AD_CLIENT_SECRET }} >>  ./nextjs-demo/.env
+            echo AZURE_AD_TENANT_ID=${{ secrets.AZURE_AD_TENANT_ID }} >>  ./nextjs-demo/.env
+            echo NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} >> ./nextjs-demo/.env
             echo NODE_ENV=production >> ./nextjs-demo/.env
 
       - name: npm install, build, and test

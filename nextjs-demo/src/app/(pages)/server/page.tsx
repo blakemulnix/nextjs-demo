@@ -3,6 +3,8 @@ import RepositoryTable from "@/src/components/RepositoryTable";
 import getCurrentTime from "@/src/util/TimeUtils";
 import React, { Suspense } from "react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
   const currentTime = getCurrentTime();
 

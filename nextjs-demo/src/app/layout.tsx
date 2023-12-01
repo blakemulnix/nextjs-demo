@@ -34,9 +34,9 @@ export default function RootLayout({
 
               <div className="flex flex-row space-x-2">
                 <ButtonLink href="/rendering">Rendering</ButtonLink>
-                <ButtonLink href="/params">Params</ButtonLink>
-                <ButtonLink href="/admin">Admin</ButtonLink>
-                <ButtonLink href="/protected">Protected</ButtonLink>
+                {/* <ButtonLink href="/params">Params</ButtonLink> */}
+                {/* <ButtonLink href="/admin">Admin</ButtonLink> */}
+                {/* <ButtonLink href="/protected">Protected</ButtonLink> */}
               </div>
               <SignIn />
             </div>

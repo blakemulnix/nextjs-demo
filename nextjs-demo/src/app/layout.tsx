@@ -32,7 +32,7 @@ export default function RootLayout({
                 </Link>
               </div>
 
-              <div className="flex flex-row space-x-2">
+              <div className="flex flex-row space-x-2 justify-center">
                 <ButtonLink href="/rendering">Rendering</ButtonLink>
                 {/* <ButtonLink href="/params">Params</ButtonLink> */}
                 {/* <ButtonLink href="/admin">Admin</ButtonLink> */}

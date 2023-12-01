@@ -5,7 +5,7 @@ import getCurrentTime from "@/src/util/TimeUtils";
 export default function Home() {
   const [clickCount, setClickCount] = useState(0);
   const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
+    getCurrentTime()
   );
 
   useEffect(() => {

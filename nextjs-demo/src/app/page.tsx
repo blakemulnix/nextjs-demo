@@ -3,20 +3,13 @@ import ButtonLink from "../components/ButtonLink";
 export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col p-12 items-center text-center">
-      <div className="text-3xl font-bold mb-8">Next.js Demo Site</div>
       <div className="text-xl font-bold mb-8 text-center">
         Welcome to this Next.js Demo Site!
       </div>
 
       <div className="text-xl font-bold mb-6">
-        Check out the links below showing off various features!
-      </div>
-      <div className="flex space-x-4 mb-12">
-        <ButtonLink href="/client">Client</ButtonLink>
-        <ButtonLink href="/server">Server</ButtonLink>
-        <ButtonLink href="/static">Static</ButtonLink>
-        <ButtonLink href="/protected">Protected</ButtonLink>
-        <ButtonLink href="/protected">API</ButtonLink>
+        Check out the links above showing off functionalties enables with little
+        to no boiler plate! features!
       </div>
 
       <div className="text-xl font-bold mb-6">
@@ -49,7 +42,7 @@ export default async function Home() {
           continuous integration, continuous deployment, and other automation
           tasks.
         </p>
-        
+
         <p>
           <strong>Azure App Service:</strong> A fully managed platform for
           building, deploying, and scaling web apps. It supports multiple

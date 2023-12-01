@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { gql } from "graphql-tag";
-import GithubGraphQLClient from "../services/GithubGraphQLClient";
+import GithubGraphQLClient from "../auth/GithubGraphQLClient";
 
 const GET_REPOSITORIES = gql`
   query {

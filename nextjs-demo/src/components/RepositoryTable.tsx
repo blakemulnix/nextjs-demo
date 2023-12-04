@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { gql } from "graphql-tag";
-import GithubGraphQLClient from "../auth/GithubGraphQLClient";
+import GithubGraphQLClient from "../services/GithubGraphQLClient";
 
 const GET_REPOSITORIES = gql`
   query {
@@ -32,7 +32,7 @@ const RepositoryTableCell = ({
 }) => {
   const cellContent = isLink ? (
     <div className="flex w-full items-center justify-center">
-      <button className=" bg-black hover:bg-gray-800 text-white font-bold py-1 px-2 rounded border border-white transition-all duration-300">
+      <button className="bg-black hover:bg-gray-800 text-white font-bold py-1 px-2 rounded border border-white transition-all duration-300">
         <Link href={content}>Repo</Link>
       </button>
     </div>

@@ -8,8 +8,8 @@ export const dynamic = 'force-dynamic';
 export default async function Page() {
   const currentTime = getCurrentTime();
 
-  // const sleep = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
-  // await sleep(5000);
+  const sleep = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
+  await sleep(5000);
 
   return (
     <main className="flex min-h-screen flex-col p-12 items-center">
@@ -18,7 +18,6 @@ export default async function Page() {
         This page is rendered on the server for each request. This page was
         rendered at {currentTime}.
       </div>
-      {/* component is server component */}
       <div className="text-2xl font-bold mb-4">
         Blake&apos;s Most Recent GitHub Repositories:
       </div>

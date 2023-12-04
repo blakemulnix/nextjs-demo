@@ -20,6 +20,9 @@ export const authOptions: NextAuthOptions = {
         const [header, payload, sig] = account.id_token.split('.')
         const idToken = JSON.parse(Buffer.from(payload, 'base64').toString('utf8'))
   
+        console.log(`id_token: ${account.id_token}`)
+
+        console.log(`token: ${JSON.stringify(token)}`)
         token.roles = [...idToken.roles]
       }
 
@@ -27,7 +30,7 @@ export const authOptions: NextAuthOptions = {
     },
     session: async ({ session, token }: any) => {
       session.roles = [...token.roles]
-
+      console.log(`session: ${JSON.stringify(session)}`)
       return session
     }
   }

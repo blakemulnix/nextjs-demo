@@ -23,7 +23,7 @@ export default function RootLayout({
       <NextAuthProvider>
         <body className={inter.className}>
           <nav className="text-white p-4">
-            <div className="grid gap4 grid-cols-3 items-center">
+            <div className="grid gap-4 grid-cols-3">
               <div>
                 <Link href={"/"}>
                   <div className="text-2xl mr-5 font-bold hover:text-lime-400 transition-all duration-300">
@@ -31,10 +31,12 @@ export default function RootLayout({
                   </div>
                 </Link>
               </div>
+       
 
               <div className="flex flex-row space-x-2 justify-center">
                 <ButtonLink href="/rendering">Rendering</ButtonLink>
-                {/* <ButtonLink href="/params">Params</ButtonLink> */}
+                <ButtonLink href="/fetch-data">Data Fetching</ButtonLink>
+                <ButtonLink href="/params">Params</ButtonLink>
                 {/* <ButtonLink href="/admin">Admin</ButtonLink> */}
                 {/* <ButtonLink href="/protected">Protected</ButtonLink> */}
               </div>

@@ -1,8 +1,9 @@
 "use client";
 import { PublicClientApplication } from '@azure/msal-browser';
 import { MsalProvider } from '@azure/msal-react';
+import { useEffect } from 'react';
 
-export default async function AuthProvider({ children }: any) {
+export default function AuthProvider({ children }: any) {
     const clientId = "4fb5e83b-f675-42c7-aecc-23eb1b845bda";
     const tenantId = "2d4c691e-e092-4da4-a7e2-172c13d386ab";
     
@@ -12,9 +13,9 @@ export default async function AuthProvider({ children }: any) {
             authority: `https://login.microsoftonline.com/${tenantId}`
         }
     };
-    
+
     const pca = new PublicClientApplication(msalConfig);
-    await pca.initialize();
+    pca.initialize();
 
     return (
         <MsalProvider instance={pca}>
@@ -22,3 +23,7 @@ export default async function AuthProvider({ children }: any) {
         </MsalProvider>
     );
 }
+function someAsyncFunction() {
+    throw new Error('Function not implemented.');
+}
+

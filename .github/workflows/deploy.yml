@@ -18,29 +18,38 @@ jobs:
         with:
           node-version: "18.x"
 
-      - name: create env file
-        run: |
-            touch  ./nextjs-demo/.env
-            echo GH_ACCESS_TOKEN=${{ secrets.GH_ACCESS_TOKEN }} >>  ./nextjs-demo/.env
-            echo AZURE_AD_CLIENT_ID=${{ secrets.AZURE_AD_CLIENT_ID }} >>  ./nextjs-demo/.env
-            echo AZURE_AD_CLIENT_SECRET=${{ secrets.AZURE_AD_CLIENT_SECRET }} >>  ./nextjs-demo/.env
-            echo AZURE_AD_TENANT_ID=${{ secrets.AZURE_AD_TENANT_ID }} >>  ./nextjs-demo/.env
-            echo NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} >> ./nextjs-demo/.env
-            echo NODE_ENV=production >> ./nextjs-demo/.env
+      # - name: create env file
+      #   run: |
+      #       touch  ./nextjs-demo/.env
+      #       echo GH_ACCESS_TOKEN=${{ secrets.GH_ACCESS_TOKEN }} >>  ./nextjs-demo/.env
+      #       echo AZURE_AD_CLIENT_ID=${{ secrets.AZURE_AD_CLIENT_ID }} >>  ./nextjs-demo/.env
+      #       echo AZURE_AD_CLIENT_SECRET=${{ secrets.AZURE_AD_CLIENT_SECRET }} >>  ./nextjs-demo/.env
+      #       echo AZURE_AD_TENANT_ID=${{ secrets.AZURE_AD_TENANT_ID }} >>  ./nextjs-demo/.env
+      #       echo NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} >> ./nextjs-demo/.env
+      #       echo NODE_ENV=production >> ./nextjs-demo/.env
 
-      - name: npm install, build, and test
-        run: |
-            cd nextjs-demo
-            npm install
-            npm run build
-            mv ./build/static ./build/standalone/build
-            mv ./public ./build/standalone
+      # - name: npm install, build, and test
+      #   run: |
+      #       cd nextjs-demo
+      #       npm install
+      #       npm run build
+      #       mv ./build/static ./build/standalone/build
+      #       mv ./public ./build/standalone
             
-      - name: "Deploy to Azure Web App"
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
+      # - name: "Deploy to Azure Web App"
+      #   id: deploy-to-webapp
+      #   uses: azure/webapps-deploy@v3
+      #   with:
+      #     app-name: 'next-js-demo-76121021496342'
+      #     slot-name: 'Production'
+      #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6876BA6489874980A640C88EC8BBA942 }}
+      #     package: ./nextjs-demo/build/standalone
+
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          app-name: 'next-js-demo-76121021496342'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6876BA6489874980A640C88EC8BBA942 }}
-          package: ./nextjs-demo/build/standalone
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ORANGE_SEA_0DC761210 }}
+          action: "upload"
+          app_location: "/next-js-demo"
+          output_location: "/next-js-demo/build"
